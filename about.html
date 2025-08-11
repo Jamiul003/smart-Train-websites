@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Train</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'times new roman', sans-serif;
+        }
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #004AAD;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        .section-subtitle {
+            font-size: 1.125rem;
+            color: #4A5568;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 3rem auto;
+        }
+        .info-card {
+            background-color: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 8px 16px -4px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+        }
+        .info-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 20px -4px rgba(0,74,173,0.15), 0 8px 8px -4px rgba(0,0,0,0.06);
+        }
+        .info-card h3 {
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: #004AAD;
+            margin-bottom: 1.5rem;
+        }
+        .info-card ul {
+            list-style-type: none;
+            padding-left: 0;
+            /* Use margin-bottom on li elements for spacing instead of 'space-y' */
+        }
+        .info-card ul li {
+            display: flex;
+            align-items: flex-start;
+            color: #334155;
+            margin-bottom: 1rem;
+        }
+        .info-card ul li:last-child {
+            margin-bottom: 0;
+        }
+        .info-card ul li .icon {
+            color: #0079FF;
+            margin-right: 0.75rem;
+            margin-top: 0.25rem;
+            flex-shrink: 0;
+        }
+        .brilliant-blues-text { color: #004AAD; }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html" style="display: flex; align-items: center; text-decoration: none; color: inherit;">
+                    <img src="images/logo.png" alt="Smart Train Logo" style="height: 50px; margin-right: 10px;">
+                    <h1><span style="color: #f00b12; font-weight: bold;">Smart Train</span></h1>
+                </a>
+            </div>
+            <input type="checkbox" id="nav-toggle" class="nav-toggle">
+            <label for="nav-toggle" class="nav-toggle-label">
+                <span class="hamburger"></span>
+            </label>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="about.html">ABOUT</a></li>
+                    <li><a href="features.html">FEATURES</a></li>
+                    <li><a href="sponsors.html">SPONSORS</a></li>
+                    <li><a href="contact.html">CONTACT</a></li>
+                    <li><button id="lang-toggle" class="lang-toggle-btn">EN/BN</button></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content py-12 text-center-all">
+        <section id="about-hero" class="text-center py-16">
+             <h2 class="section-title animation-fadeInUp" data-lang-en="About SmartTrain" data-lang-bn="স্মার্টট্রেন সম্পর্কে">About SmartTrain</h2>
+             <p class="section-subtitle animation-fadeInUp" data-lang-en="An innovative mobile application designed to provide real-time information on train routes, schedules, and live locations for railway passengers in Bangladesh. Our primary goal is to ensure a smooth and informative travel experience for all users." data-lang-bn="একটি উদ্ভাবনী মোবাইল অ্যাপ্লিকেশন যা বাংলাদেশের রেলওয়ে যাত্রীদের জন্য ট্রেনের রুট, সময়সূচী এবং লাইভ অবস্থানের রিয়েল-টাইম তথ্য সরবরাহ করার জন্য ডিজাইন করা হয়েছে। আমাদের মূল লক্ষ্য সকল ব্যবহারকারীর জন্য একটি মসৃণ এবং তথ্যপূর্ণ ভ্রমণ অভিজ্ঞতা নিশ্চিত করা।">An innovative mobile application designed to provide real-time information on train routes, schedules, and live locations for railway passengers in Bangladesh. Our primary goal is to ensure a smooth and informative travel experience for all users.</p>
+        </section>
+
+        <section id="core-info" class="py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="info-card animation-fadeInLeft">
+                        <h3 data-lang-en="Our Core Objectives" data-lang-bn="আমাদের মূল উদ্দেশ্য">Our Core Objectives</h3>
+                        <ul>
+                            <li><i class="fas fa-bullseye icon"></i><span data-lang-en="Provide reliable, real-time train information." data-lang-bn="নির্ভরযোগ্য, রিয়েল-টাইম ট্রেনের তথ্য প্রদান করা।">Provide reliable, real-time train information.</span></li>
+                            <li><i class="fas fa-database icon"></i><span data-lang-en="Create a hybrid data model using user and official data." data-lang-bn="ব্যবহারকারী এবং অফিসিয়াল ডেটা ব্যবহার করে একটি হাইব্রিড ডেটা মডেল তৈরি করা।">Create a hybrid data model using user and official data.</span></li>
+                            <li><i class="fas fa-user-friends icon"></i><span data-lang-en="Reduce passenger inconvenience and fill information gaps." data-lang-bn="যাত্রীদের অসুবিধা কমানো এবং তথ্যের ঘাটতি পূরণ করা।">Reduce passenger inconvenience and fill information gaps.</span></li>
+                        </ul>
+                    </div>
+                    <div class="info-card animation-fadeInUp">
+                        <h3 data-lang-en="For App Users" data-lang-bn="অ্যাপ ব্যবহারকারীদের জন্য">For App Users</h3>
+                        <ul>
+                            <li><i class="fas fa-clock icon"></i><span data-lang-en="Access accurate, live train data to save time." data-lang-bn="সময় বাঁচাতে সঠিক, লাইভ ট্রেনের ডেটা অ্যাক্সেস করুন।">Access accurate, live train data to save time.</span></li>
+                            <li><i class="fas fa-route icon"></i><span data-lang-en="Plan journeys efficiently with reliable information." data-lang-bn="নির্ভরযোগ্য তথ্য দিয়ে দক্ষতার সাথে ভ্রমণের পরিকল্পনা করুন।">Plan journeys efficiently with reliable information.</span></li>
+                            <li><i class="fas fa-shield-alt icon"></i><p data-lang-en="Receive emergency alerts for enhanced safety." data-lang-bn="বর্ধিত নিরাপত্তার জন্য জরুরি সতর্কতা গ্রহণ করুন।">Receive emergency alerts for enhanced safety.</p></li>
+                            <li><i class="fas fa-mobile-alt icon"></i><span data-lang-en="Enjoy a user-friendly, on-the-go experience." data-lang-bn="একটি ব্যবহারকারী-বান্ধব, பயண közbeni অভিজ্ঞতা উপভোগ করুন।">Enjoy a user-friendly, on-the-go experience.</span></li>
+                        </ul>
+                    </div>
+                    <div class="info-card animation-fadeInRight">
+                        <h3 data-lang-en="For Bangladesh Railway" data-lang-bn="বাংলাদেশ রেলওয়ের জন্য">For Bangladesh Railway</h3>
+                        <ul>
+                            <li><i class="fas fa-cogs icon"></i><span data-lang-en="Automate information to improve operational efficiency." data-lang-bn="কার্যকরী দক্ষতা উন্নত করতে তথ্য স্বয়ংক্রিয় করুন।">Automate information to improve operational efficiency.</span></li>
+                            <li><i class="fas fa-chart-line icon"></i><span data-lang-en="Gather real-time data for better decision-making." data-lang-bn="উন্নত সিদ্ধান্ত গ্রহণের জন্য রিয়েল-টাইম ডেটা সংগ্রহ করুন।">Gather real-time data for better decision-making.</span></li>
+                            <li><i class="fas fa-train icon"></i><span data-lang-en="Modernize services and enhance public trust." data-lang-bn="পরিষেবা আধুনিকীকরণ এবং জনসাধারণের আস্থা বৃদ্ধি।">Modernize services and enhance public trust.</span></li>
+                            <li><i class="fas fa-dollar-sign icon"></i><span data-lang-en="Explore new revenue streams and optimize resources." data-lang-bn="নতুন রাজস্ব স্ট্রিম অন্বেষণ এবং সম্পদ অপ্টিমাইজ করুন।">Explore new revenue streams and optimize resources.</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-links">
+                <a href="#">Terms & Conditions</a>
+                <a href="#">Privacy policy</a>
+            </div>
+            <p>&copy; 2025-Smart Train. All Rights Reserved.</p>
+        </div>
+    </footer>
+    <div class="loader"></div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,668 @@
+/* General Styles */
+.text-center-all {
+    text-align: center;
+}
+
+:root {
+    --primary-color: #007bff;
+    --secondary-color: #28a745;
+    --card-bg: #d9d9d9;
+    --text-color: #333;
+    --light-text: #6c757d;
+    --header-bg: #00bf63; /* Header color */
+    --footer-bg: #343a40; /* Footer color */
+    --footer-text: #f8f9fa;
+    --coming-soon-color: #ffc107;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Times New Roman', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background: #fff9f9; /* Full page background except header/footer */
+    min-height: 100vh; /* Ensures the gradient covers the entire viewport height */
+    display: flex;
+    flex-direction: column; /* Allows header, main, footer to stack vertically */
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+}
+
+/* Header */
+.header {
+    background: var(--header-bg);
+    padding: 1rem 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    animation: slideDown 0.5s ease-out;
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo h1 {
+    font-size: 2rem;
+    color: #4a4a4a;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+/* Navigation Toggle (Hamburger) */
+.nav-toggle {
+    display: none; /* Hide checkbox */
+}
+
+.nav-toggle-label {
+    display: none; /* Hidden by default, shown in media query */
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    position: relative;
+    z-index: 1001; /* Ensure it's above other elements */
+}
+
+.hamburger {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: var(--text-color);
+    transition: all 0.3s ease-in-out;
+    transform: translateY(-50%);
+}
+
+.hamburger::before,
+.hamburger::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background-color: var(--text-color);
+    transition: all 0.3s ease-in-out;
+}
+
+.hamburger::before {
+    top: -10px;
+}
+
+.hamburger::after {
+    top: 10px;
+}
+
+/* Animate hamburger to cross */
+.nav-toggle:checked + .nav-toggle-label .hamburger {
+    transform: rotate(45deg);
+}
+
+.nav-toggle:checked + .nav-toggle-label .hamburger::before {
+    top: 0;
+    transform: rotate(90deg);
+}
+
+.nav-toggle:checked + .nav-toggle-label .hamburger::after {
+    top: 0;
+    transform: rotate(90deg);
+}
+
+/* Navigation */
+.navbar ul {
+    display: flex;
+    list-style: none;
+}
+
+.navbar ul li {
+    margin-left: 1.5rem;
+}
+
+.navbar ul li a {
+    font-weight: bold;
+    color: #4a4a4a;
+    /* Only transition color, not transform to avoid layout shifts */
+    transition: color 0.3s ease; 
+
+    position: relative; /* Essential for positioning ::before */
+    z-index: 1; /* To keep text above the bubble */
+    padding: 0.5rem 1rem; /* Consistent padding */
+    border-radius: 20px;
+    
+    /* Changes to center the text precisely using Flexbox */
+    display: flex; 
+    justify-content: center; /* Horizontally center content */
+    align-items: center; /* Vertically center content */
+    min-height: 40px; /* Ensures a consistent minimum height for the link area */
+
+    line-height: normal; /* To prevent vertical shifts due to font size changes */
+    white-space: nowrap; /* Prevents text from wrapping */
+}
+
+.navbar ul li a:hover {
+    color: var(--primary-color);
+    /* --- IMPORTANT FIX: Removed transform: scale(1.1); from here --- */
+    /* This was the likely culprit for header shifting on hover/active states.
+       Removing it ensures that the size of the link does not change,
+       preventing layout shifts. */
+}
+
+/* New Bubble Navigation Style - Fixed */
+.navbar ul li a::before { /* ::before is now a child of <a> */
+    content: '';
+    position: absolute;
+    top: 0; /* Starts from the top of the <a> tag */
+    left: 0; /* Starts from the left of the <a> tag */
+    width: 100%; /* Takes the full width of the <a> tag (including padding) */
+    height: 100%; /* Takes the full height of the <a> tag (including padding) */
+    background-color: white;
+    border-radius: 20px;
+    transform: scale(0); /* Invisible initially */
+    opacity: 0;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    z-index: -1; /* To place it below the text */
+}
+
+.navbar ul li.current-page a::before {
+    transform: scale(1); /* Scales up when active */
+    opacity: 1;
+}
+
+.navbar ul li.current-page a {
+    color: var(--primary-color);
+}
+
+.navbar ul li.current-page a {
+    color: var(--primary-color);
+}
+
+/* Main Content */
+.main-content {
+    flex-grow: 1; /* Allows main content to take up available space */
+    /* Background is now applied to the body */
+}
+
+/* Hero Section */
+.hero-section {
+    padding: 4rem 0;
+    color: white;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+    animation: pulse 5s infinite ease-in-out;
+}
+
+.hero-section .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    position: relative;
+}
+
+.hero-text {
+    flex: 1;
+    text-align: left;
+    animation: fadeInLeft 1s ease-out;
+    color: #333; /* Text color for readability on light gradient */
+}
+
+.hero-text h2 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+}
+
+.hero-text p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    color: #555;
+}
+
+.hero-image {
+    flex: 0.5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: fadeInRight 1s ease-out;
+}
+
+.hero-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 1rem;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    animation: float 3s ease-in-out infinite;
+}
+
+.download-btn {
+    display: inline-block;
+    padding: 0.75rem 2rem;
+    background-color: var(--secondary-color);
+    color: white;
+    border-radius: 50px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: pulse-animation 2s infinite;
+}
+
+.download-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    animation: none; /* Stop animation on hover */
+}
+
+/* Recent Notice Section */
+.notice-section {
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.notice-section .container {
+    background-color: var(--card-bg); /* Background for the entire notice box */
+    padding: 2rem; /* Padding inside the box */
+    border-radius: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 0 auto; /* Center the box */
+    max-width: 800px; /* Limit the width of the box */
+}
+
+.notice-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: var(--text-color);
+}
+
+.notice-card {
+    /* Removed background-color and box-shadow from here */
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-radius: 0.5rem; /* Slightly smaller border-radius for inner cards */
+    transition: transform 0.3s ease;
+    animation: fadeInUp 0.8s ease-out forwards;
+    opacity: 0;
+    border: 1px solid #eee; /* Subtle border for each notice */
+    text-align: left; /* Align text within notice cards to left */
+}
+
+.notice-card:not(:last-child) {
+    margin-bottom: 1rem; /* Adjust spacing between cards */
+}
+
+.notice-card:nth-child(2) { animation-delay: 0.2s; } /* Adjust delay for multiple cards */
+.notice-card:nth-child(3) { animation-delay: 0.4s; }
+
+.notice-card:hover {
+    transform: translateY(-3px); /* Subtle lift on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow on hover for individual card */
+}
+
+.notice-card p {
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+}
+
+.notice-card .notice-date {
+    font-size: 0.9rem;
+    color: var(--light-text);
+    text-align: right;
+}
+
+/* Download Section */
+.download-section {
+    padding: 4rem 0;
+    background-color: transparent; /* Background handled by body */
+    text-align: center;
+    animation: fadeIn 1s ease-out;
+}
+
+.download-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.download-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.app-btn {
+    display: flex;
+    align-items: center;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.app-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.app-btn i {
+    font-size: 2rem;
+    margin-right: 1rem;
+}
+
+.app-btn.android {
+    background-color: #3DDC84;
+}
+
+.app-btn.ios {
+    background-color: #000;
+}
+
+body {
+    opacity: 0; /* Start with the page invisible */
+    transition: opacity 0.5s ease-in-out;
+}
+
+body.fade-in {
+    opacity: 1; /* Fade to visible */
+}
+
+body.fade-out {
+    opacity: 0; /* Fade to invisible */
+}
+
+.loader {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 8px solid #f3f3f3; /* Light grey */
+    border-top: 8px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite;
+    z-index: 9999;
+    display: none; /* Hidden by default */
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.lang-toggle-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.lang-toggle-btn:hover {
+    background-color: var(--secondary-color);
+}
+
+/* Footer */
+.footer {
+    background-color: var(--footer-bg);
+    color: var(--footer-text);
+    padding: 2rem 0;
+    text-align: center;
+}
+
+.footer-links {
+    margin-bottom: 1rem;
+}
+
+.footer-links a {
+    color: var(--footer-text);
+    margin: 0 1rem;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--primary-color);
+}
+
+/* Animations */
+.animation-fadeInUp {
+    animation: fadeInUp 1s ease-out forwards;
+}
+.animation-fadeInLeft {
+    animation: fadeInLeft 1s ease-out forwards;
+}
+.animation-fadeInRight {
+    animation: fadeInRight 1s ease-out forwards;
+}
+
+@keyframes slideDown {
+    from { transform: translateY(-100%); }
+    to { transform: translateY(0); }
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animation-fadeIn {
+    animation: fadeIn 1s ease-out;
+}
+
+.animation-slideIn {
+    animation: slideIn 1s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0); }
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+@keyframes pulse-animation {
+    0% {
+        box-shadow: 0 0 0 0 rgba(40, 167, 69, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 20px rgba(40, 167, 69, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(40, 167, 69, 0);
+    }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 0.1; }
+    50% { transform: scale(1.2); opacity: 0.3; }
+    100% { transform: scale(1); opacity: 0.1; }
+}
+
+/* Media Queries for Responsive Navigation */
+@media (max-width: 768px) {
+    .header .container {
+        flex-direction: row; /* Keep logo and hamburger in a row */
+        justify-content: space-between; /* Space out logo and hamburger */
+        align-items: center;
+    }
+
+    .navbar {
+        position: absolute;
+        top: 100%; /* Position below header */
+        left: 0;
+        width: 100%;
+        background: var(--header-bg); /* Same background as header */
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        transform: translateY(-100%); /* Hide by default */
+        transition: transform 0.3s ease-in-out;
+        opacity: 0;
+        pointer-events: none; /* Disable interaction when hidden */
+    }
+
+    .navbar ul {
+        flex-direction: column;
+        padding: 1rem 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    .navbar ul li {
+        margin: 0.5rem 0;
+    }
+
+    .navbar ul li a {
+        padding: 0.5rem 0;
+        display: block;
+    }
+
+    .nav-toggle-label {
+        display: block; /* Show hamburger icon */
+    }
+
+    /* Show navigation when checkbox is checked */
+    .nav-toggle:checked ~ .navbar {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    /* Existing media query adjustments */
+    .hero-section .container {
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+
+    .hero-text {
+        text-align: center;
+    }
+
+    .hero-text h2 {
+        font-size: 2.5rem;
+    }
+
+    .hero-text p {
+        font-size: 1rem;
+    }
+
+    .hero-image {
+        flex: none;
+        width: 80%;
+        margin-bottom: 2rem;
+    }
+
+    .hero-image img {
+        max-width: 100%;
+    }
+
+    .download-buttons {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo h1 {
+        font-size: 1.8rem;
+    }
+    .hero-text h2 {
+        font-size: 2rem;
+    }
+    .download-btn {
+        padding: 0.6rem 1.5rem;
+        font-size: 0.9rem;
+    }
+    .app-btn {
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
+    }
+    .app-btn i {
+        font-size: 1.5rem;
+    }
+}
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 2rem 0; /* Reduced padding for smaller screens */
+    }
+    .notice-section {
+        padding: 2rem 0; /* Reduced padding for smaller screens */
+    }
+    .download-section {
+        padding: 2rem 0; /* Reduced padding for smaller screens */
+    }
+}

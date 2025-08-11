@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Features - Smart Train</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'times new roman', sans-serif;
+            background-color: #F0F4F8;
+        }
+        .section-title {
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: #004AAD;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        .section-subtitle {
+            font-size: 1.125rem;
+            color: #4A5568;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 3rem auto;
+        }
+        .feature-card {
+            background-color: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 8px 16px -4px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+            text-align: center;
+        }
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 20px -4px rgba(0,74,173,0.15), 0 8px 8px -4px rgba(0,0,0,0.06);
+        }
+        .feature-card .icon {
+            font-size: 3rem;
+            color: #0079FF;
+            margin-bottom: 1.5rem;
+        }
+        .feature-card h3 {
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: #004AAD;
+            margin-bottom: 1rem;
+        }
+        .feature-card p {
+            color: #334155;
+        }
+        /* Custom styles for the infographic features section */
+        .feature-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 1rem;
+        }
+        .feature-icon-box {
+            background-color: white;
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 0.75rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .feature-icon {
+            font-size: 2.5rem; /* Adjust icon size */
+            color: #0079FF; /* Default icon color */
+        }
+        .feature-text {
+            font-weight: 600;
+            color: #334155;
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html" style="display: flex; align-items: center; text-decoration: none; color: inherit;">
+                    <img src="images/logo.png" alt="Smart Train Logo" style="height: 50px; margin-right: 10px;">
+                    <h1><span style="color: #f00b12; font-weight: bold;">Smart Train</span></h1>
+                </a>
+            </div>
+            <input type="checkbox" id="nav-toggle" class="nav-toggle">
+            <label for="nav-toggle" class="nav-toggle-label">
+                <span class="hamburger"></span>
+            </label>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="about.html">ABOUT</a></li>
+                    <li><a href="features.html">FEATURES</a></li>
+                    <li><a href="sponsors.html">SPONSORS</a></li>
+                    <li><a href="contact.html">CONTACT</a></li>
+                    <li><button id="lang-toggle" class="lang-toggle-btn">EN/BN</button></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content py-12 text-center-all">
+        <section id="features-hero" class="text-center py-16">
+             <h2 class="section-title animation-fadeInUp" data-lang-en="App Features" data-lang-bn="অ্যাপের বৈশিষ্ট্য">App Features</h2>
+             <p class="section-subtitle animation-fadeInUp" data-lang-en="Discover the powerful features that make SmartTrain the most advanced railway app in Bangladesh." data-lang-bn="স্মার্টট্রেনকে বাংলাদেশের সবচেয়ে উন্নত রেলওয়ে অ্যাপে পরিণতকারী শক্তিশালী বৈশিষ্ট্যগুলি আবিষ্কার করুন।">Discover the powerful features that make SmartTrain the most advanced railway app in Bangladesh.</p>
+        </section>
+
+        <section id="features-list" class="py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Feature 1: Live Location Tracking (mimicking image_9806e1.png) -->
+                    <div class="feature-card animation-fadeInLeft">
+                        <div class="flex justify-center items-center mb-4">
+                            <div class="w-24 h-24 rounded-full bg-blue-100 flex items-center justify-center">
+                                <i class="fas fa-map-marker-alt text-5xl text-blue-600"></i>
+                            </div>
+                        </div>
+                        <h3 data-lang-en="Live Location Tracking" data-lang-bn="লাইভ লোকেশন ট্র্যাকিং">Live Location Tracking</h3>
+                        <p data-lang-en="Track your train in real-time with precise GPS location updates." data-lang-bn="সঠিক জিপিএস অবস্থান আপডেটের মাধ্যমে আপনার ট্রেন রিয়েল-টাইমে ট্র্যাক করুন।">Track your train in real-time with precise GPS location updates.</p>
+                    </div>
+                    <!-- Feature 2: Intercity Train Schedule (mimicking image_9806e1.png) -->
+                    <div class="feature-card animation-fadeInUp">
+                        <div class="flex justify-center items-center mb-4">
+                            <div class="w-24 h-24 rounded-full bg-blue-100 flex items-center justify-center">
+                                <i class="fas fa-clock text-5xl text-blue-600"></i>
+                            </div>
+                        </div>
+                        <h3 data-lang-en="Intercity Train Schedule" data-lang-bn="আন্তঃনগর ট্রেনের সময়সূচী">Intercity Train Schedule</h3>
+                        <p data-lang-en="Access up-to-date schedules for all intercity train services." data-lang-bn="সমস্ত আন্তঃনগর ট্রেন পরিষেবার জন্য আপ-টু-ডেট সময়সূচী অ্যাক্সেস করুন।">Access up-to-date schedules for all intercity train services.</p>
+                    </div>
+                    <!-- Feature 3: Station-Based Search (mimicking image_9806e1.png) -->
+                    <div class="feature-card animation-fadeInRight">
+                        <div class="flex justify-center items-center mb-4">
+                            <div class="w-24 h-24 rounded-full bg-blue-100 flex items-center justify-center">
+                                <i class="fas fa-search-location text-5xl text-blue-600"></i>
+                            </div>
+                        </div>
+                        <h3 data-lang-en="Station-Based Search" data-lang-bn="স্টেশন ভিত্তিক অনুসন্ধান">Station-Based Search</h3>
+                        <p data-lang-en="Find trains by searching specific stations and routes." data-lang-bn="নির্দিষ্ট স্টেশন এবং রুট অনুসন্ধান করে ট্রেন খুঁজুন।">Find trains by searching specific stations and routes.</p>
+                    </div>
+                    <!-- Feature 4: Report Train Location -->
+                    <div class="feature-card animation-fadeInUp">
+                        <div class="flex justify-center items-center mb-4">
+                            <div class="w-24 h-24 rounded-full bg-blue-100 flex items-center justify-center">
+                                <i class="fas fa-map-pin text-5xl text-blue-600"></i>
+                            </div>
+                        </div>
+                        <h3 data-lang-en="Report Train Location" data-lang-bn="ট্রেনের অবস্থান রিপোর্ট করুন">Report Train Location</h3>
+                        <p data-lang-en="Help other passengers by reporting the train's location. Your reports contribute to our real-time data." data-lang-bn="ট্রেনের অবস্থান জানিয়ে অন্যান্য যাত্রীদের সাহায্য করুন। আপনার রিপোর্ট আমাদের রিয়েল-টাইম ডেটাতে অবদান রাখে।">Help other passengers by reporting the train's location. Your reports contribute to our real-time data.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="future-plans" class="max-w-6xl mx-auto px-4 mb-16 py-12">
+            <div class="bg-gradient-to-r from-[#004AAD] to-[#0079FF] text-white rounded-lg shadow-lg p-8 text-center">
+                <h3 class="text-3xl font-bold mb-8">Our Future Plans: Advanced Features</h3>
+                <p class="text-lg text-blue-100 mb-10">SmartTrain is continuously evolving. Here are the advanced features we plan to implement to further enhance your travel experience and railway operations.</p>
+
+                <!-- Infographic Section for Future Features -->
+                <div class="bg-white rounded-lg p-8 shadow-xl mx-auto max-w-4xl">
+                    <h4 class="text-2xl font-bold text-gray-800 mb-8">SmartTrain's Upcoming Features</h4>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
+                        <!-- Removed Accurate Live Tracking as it's a current feature -->
+                        <div class="feature-item">
+                            <div class="feature-icon-box" style="background-color: #E0F7FA;"><span class="feature-icon" style="color: #00D2FF;">🎟️</span></div>
+                            <p class="feature-text">Smart Ticketing & Fraud Prevention</p>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon-box" style="background-color: #F3E5F5;"><span class="feature-icon" style="color: #673AB7;">🤖</span></div>
+                            <p class="feature-text">AI-Powered Personalized Assistance</p>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon-box" style="background-color: #FBE9E7;"><span class="feature-icon" style="color: #FF5722;">🛡️</span></div>
+                            <p class="feature-text">Emergency Safety Alerts</p>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon-box" style="background-color: #E8F5E9;"><span class="feature-icon" style="color: #4CAF50;">📊</span></div>
+                            <p class="feature-text">Data Analytics for Authorities</p>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon-box" style="background-color: #E3F2FD;"><span class="feature-icon" style="color: #2196F3;">🌐</span></div>
+                            <p class="feature-text">Multilingual Support</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- End of Infographic Section -->
+
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-links">
+                <a href="#">Terms & Conditions</a>
+                <a href="#">Privacy policy</a>
+            </div>
+            <p>&copy; 2025-Smart Train. All Rights Reserved.</p>
+        </div>
+    </footer>
+    <div class="loader"></div>
+    <script src="script.js"></script>
+</body>
+</html>
