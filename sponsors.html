@@ -46,6 +46,203 @@
             max-width: 150px;
             margin: 0 auto;
         }
+        .hero-section {
+            padding: 4rem 0;
+            color: #333;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            background: #f6f9ff;
+        }
+
+        .hero-section .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+            position: relative;
+        }
+
+        .hero-text {
+            flex: 1;
+            text-align: left;
+            animation: fadeInLeft 1s ease-out;
+            color: #333;
+        }
+
+        .hero-text h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            color: #555;
+        }
+
+        .cta-row {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 18px;
+            border-radius: 10px;
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+            background: transparent;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background-color: var(--primary-color);
+            color: white;
+            box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3);
+        }
+
+        .hero-card-container {
+            flex: 0.8;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .hero-card {
+            background: #fff;
+            border: 1px solid #e8eef7;
+            border-radius: 16px;
+            padding: 18px;
+            color: #0f172a;
+            box-shadow: 0 8px 24px rgba(0,0,0,.08);
+            text-align: left;
+        }
+
+        .hero-card h3 {
+            margin: 0;
+            font-size: 22px;
+            color: var(--primary-color);
+        }
+
+        .hero-card p {
+            margin: 6px 0 0;
+            color: #4a5568;
+            font-size: 13px;
+        }
+
+        .section-title {
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: #004AAD;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.125rem;
+            color: #4A5568;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 3rem auto;
+        }
+        
+        .grid-container {
+            display: grid;
+            gap: 18px;
+            grid-template-columns: repeat(3, 1fr);
+            margin-top: 24px;
+        }
+
+        .card {
+            background: #ffffff;
+            border: 1px solid #e8eef7;
+            border-radius: 14px;
+            padding: 20px;
+            box-shadow: 0 8px 24px rgba(0,0,0,.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .card h3 {
+            margin: 0 0 8px;
+            font-size: 20px;
+            color: var(--primary-color);
+        }
+
+        .card p {
+            margin: 0;
+            color: #425975;
+        }
+
+        .icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            display: grid;
+            place-items: center;
+            color: #fff;
+            font-weight: 900;
+            background: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .data-card {
+            background-color: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 8px 16px -4px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+            text-align: center;
+        }
+
+        .data-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 20px -4px rgba(0,74,173,0.15), 0 8px 8px -4px rgba(0,0,0,0.06);
+        }
+
+        .data-card .data-icon {
+            font-size: 3rem;
+            color: #0079FF;
+            margin-bottom: 1rem;
+        }
+
+        .data-card h3 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #004AAD;
+        }
+
+        .data-card p {
+            font-size: 1rem;
+            color: #334155;
+            margin-top: 0.5rem;
+        }
+
+        /* Media Queries */
+        @media (max-width: 980px) {
+            .hero-section .container {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
+            .hero-text {
+                text-align: center;
+            }
+            .hero-card-container {
+                grid-template-columns: 1fr;
+                margin-bottom: 2rem;
+            }
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
@@ -66,7 +263,7 @@
                     <li><a href="index.html">HOME</a></li>
                     <li><a href="about.html">ABOUT</a></li>
                     <li><a href="features.html">FEATURES</a></li>
-                    <li><a href="sponsors.html">SPONSORS</a></li>
+                    <li class="current-page"><a href="sponsors.html">SPONSORS</a></li>
                     <li><a href="contact.html">CONTACT</a></li>
                     <li><button id="lang-toggle" class="lang-toggle-btn">EN/BN</button></li>
                 </ul>
@@ -74,30 +271,110 @@
         </div>
     </header>
 
-    <main class="main-content py-12 text-center-all">
-        <section id="sponsors-hero" class="text-center py-16">
-             <h2 class="section-title animation-fadeInUp" data-lang-en="Our Sponsors" data-lang-bn="আমাদের পৃষ্ঠপোষক">Our Sponsors</h2>
-             <p class="section-subtitle animation-fadeInUp" data-lang-en="We are grateful for the support of our sponsors, who help us to improve the railway experience in Bangladesh." data-lang-bn="আমরা আমাদের পৃষ্ঠপোষকদের সমর্থনের জন্য কৃতজ্ঞ, যারা আমাদের বাংলাদেশের রেলওয়ে অভিজ্ঞতা উন্নত করতে সহায়তা করে।">We are grateful for the support of our sponsors, who help us to improve the railway experience in Bangladesh.</p>
+    <main class="main-content">
+        <section class="hero-section">
+            <div class="container">
+                <div class="hero-text">
+                    <h1 data-lang-en="Sponsorship & Partnership" data-lang-bn="স্পন্সরশিপ ও পার্টনারশিপ">Sponsorship & Partnership</h1>
+                    <p data-lang-en="Partner with Smart Train to reach millions of passengers and contribute to the modernization of Bangladesh Railway." data-lang-bn="Smart Train-এর সাথে যুক্ত হয়ে আপনার ব্র্যান্ডকে হাজার হাজার মানুষের কাছে পৌঁছে দিন এবং বাংলাদেশ রেলওয়ের উন্নয়নে ভূমিকা রাখুন।">Partner with Smart Train to reach millions of passengers and contribute to the modernization of Bangladesh Railway.</p>
+                    <div class="cta-row">
+                        <a class="btn" href="#sponsors" data-lang-en="Sponsorship" data-lang-bn="স্পন্সরশিপ">Sponsorship</a>
+                        <a class="btn" href="#partners" data-lang-en="Partnership" data-lang-bn="পার্টনারশিপ">Partnership</a>
+                    </div>
+                </div>
+                <div class="hero-card-container">
+                    <div class="hero-card">
+                        <h3>3M+ Daily</h3>
+                        <p data-lang-en="Estimated passenger reach across the national network" data-lang-bn="যাত্রীদের কাছে প্রতিদিন পৌঁছানোর আনুমানিক সুযোগ">Estimated passenger reach across the national network</p>
+                    </div>
+                    <div class="hero-card">
+                        <h3>70%+</h3>
+                        <p data-lang-en="Smartphone reach for scalable in-app sponsorship" data-lang-bn="স্মার্টফোন ব্যবহারকারীদের কাছে পৌঁছানোর সুযোগ">Smartphone reach for scalable in-app sponsorship</p>
+                    </div>
+                    <div class="hero-card">
+                        <h3>Govt. Partnered</h3>
+                        <p data-lang-en="A secure and reliable platform under a government partnership." data-lang-bn="সরকারি অংশীদারিত্বে সুরক্ষিত ও নির্ভরযোগ্য প্ল্যাটফর্ম">A secure and reliable platform under a government partnership.</p>
+                    </div>
+                    <div class="hero-card">
+                        <h3>Data‑safe</h3>
+                        <p data-lang-en="Privacy-first implementation and governance" data-lang-bn="ডেটা সুরক্ষায় সর্বোচ্চ অগ্রাধিকার">Privacy-first implementation and governance</p>
+                    </div>
+                </div>
+            </div>
         </section>
 
-        <section id="sponsors-list" class="py-20">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section id="data-infographic" class="py-12">
+            <div class="container">
+                <h2 class="section-title" data-lang-en="Our Audience at a Glance" data-lang-bn="এক নজরে আমাদের দর্শক">Our Audience at a Glance</h2>
+                <p class="section-subtitle" data-lang-en="Key statistics to show the reach and impact of your sponsorship with Smart Train." data-lang-bn="স্মার্ট ট্রেনের সাথে আপনার স্পনসরশিপের প্রভাব ও বিস্তার প্রদর্শনের জন্য প্রধান পরিসংখ্যান।">Key statistics to show the reach and impact of your sponsorship with Smart Train.</p>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <!-- Sponsor 1 -->
-                    <div class="sponsor-card animation-fadeInUp">
-                        <img src="https://via.placeholder.com/150" alt="Sponsor 1">
+                    <div class="data-card animation-fadeInUp">
+                        <div class="data-icon"><i class="fas fa-users"></i></div>
+                        <h3 data-lang-en="3M+" data-lang-bn="৩০ লক্ষ+">3M+</h3>
+                        <p data-lang-en="Daily Passengers Reached" data-lang-bn="দৈনিক যাত্রী">Daily Passengers Reached</p>
                     </div>
-                    <!-- Sponsor 2 -->
-                    <div class="sponsor-card animation-fadeInUp">
-                        <img src="https://via.placeholder.com/150" alt="Sponsor 2">
+                    <div class="data-card animation-fadeInUp" style="animation-delay: 0.2s;">
+                        <div class="data-icon"><i class="fas fa-mobile-alt"></i></div>
+                        <h3 data-lang-en="70%+" data-lang-bn="৭০%+">70%+</h3>
+                        <p data-lang-en="Smartphone User Base" data-lang-bn="স্মার্টফোন ব্যবহারকারী">Smartphone User Base</p>
                     </div>
-                    <!-- Sponsor 3 -->
-                    <div class="sponsor-card animation-fadeInUp">
-                        <img src="https://via.placeholder.com/150" alt="Sponsor 3">
+                    <div class="data-card animation-fadeInUp" style="animation-delay: 0.4s;">
+                        <div class="data-icon"><i class="fas fa-route"></i></div>
+                        <h3 data-lang-en="100+" data-lang-bn="১০০+">100+</h3>
+                        <p data-lang-en="Routes Covered" data-lang-bn="কভারকৃত রুট">Routes Covered</p>
                     </div>
-                    <!-- Sponsor 4 -->
-                    <div class="sponsor-card animation-fadeInUp">
-                        <img src="https://via.placeholder.com/150" alt="Sponsor 4">
+                    <div class="data-card animation-fadeInUp" style="animation-delay: 0.6s;">
+                        <div class="data-icon"><i class="fas fa-train"></i></div>
+                        <h3 data-lang-en="500+" data-lang-bn="৫০০+">500+</h3>
+                        <p data-lang-en="Daily Train Operations" data-lang-bn="দৈনিক ট্রেন পরিচালনা">Daily Train Operations</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="sponsors" class="py-12">
+            <div class="container">
+                <h2 class="section-title" data-lang-en="Why Sponsor?" data-lang-bn="কেন স্পন্সর করবেন?">Why Sponsor?</h2>
+                <p class="section-subtitle" data-lang-en="Increase your brand's visibility and reach millions of people." data-lang-bn="আপনার ব্র্যান্ডের পরিচিতি বাড়ান এবং লক্ষ লক্ষ মানুষের কাছে পৌঁছান।">Increase your brand's visibility and reach millions of people.</p>
+                <div class="grid-container">
+                    <div class="card">
+                        <div class="icon">🔍</div>
+                        <h3 data-lang-en="Targeted Advertising" data-lang-bn="টার্গেটেড বিজ্ঞাপন">Targeted Advertising</h3>
+                        <p data-lang-en="Place ads based on specific routes, times, or passenger segments." data-lang-bn="নির্দিষ্ট রুট, সময় বা যাত্রীর উপর ভিত্তি করে বিজ্ঞাপন দিতে পারবেন।">Place ads based on specific routes, times, or passenger segments.</p>
+                    </div>
+                    <div class="card">
+                        <div class="icon">📈</div>
+                        <h3 data-lang-en="Brand Visibility" data-lang-bn="ব্র্যান্ড পরিচিতি">Brand Visibility</h3>
+                        <p data-lang-en="Gain visibility across key touchpoints like ticketing, notifications, and live tracking screens." data-lang-bn="টিকিট, নোটিফিকেশন এবং লাইভ ট্র্যাকিং-এর মতো গুরুত্বপূর্ণ অংশে আপনার ব্র্যান্ডের প্রচার হবে।">Gain visibility across key touchpoints like ticketing, notifications, and live tracking screens.</p>
+                    </div>
+                    <div class="card">
+                        <div class="icon">✅</div>
+                        <h3 data-lang-en="Trustworthy Platform" data-lang-bn="নির্ভরযোগ্য প্ল্যাটফর্ম">Trustworthy Platform</h3>
+                        <p data-lang-en="Your brand's safety and credibility are ensured through government partnership." data-lang-bn="সরকারি অংশীদারিত্বের কারণে ব্র্যান্ডের নিরাপত্তা এবং বিশ্বাসযোগ্যতা নিশ্চিত।">Your brand's safety and credibility are ensured through government partnership.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="partners" class="py-12">
+            <div class="container">
+                <h2 class="section-title" data-lang-en="Partnership Models" data-lang-bn="পার্টনারশিপ মডেল">Partnership Models</h2>
+                <p class="section-subtitle" data-lang-en="Create new opportunities through joint ventures." data-lang-bn="যৌথ উদ্যোগের মাধ্যমে নতুন দিগন্ত উন্মোচন করুন।">Create new opportunities through joint ventures.</p>
+                <div class="grid-container">
+                    <div class="card">
+                        <div class="icon">🤝</div>
+                        <h3 data-lang-en="Public-Private Partnership (PPP)" data-lang-bn="পাবলিক-প্রাইভেট পার্টনারশিপ (PPP)">Public-Private Partnership (PPP)</h3>
+                        <p data-lang-en="Collaborate with us on technology, capital, and operations through a PPP model." data-lang-bn="প্রযুক্তি, মূলধন এবং পরিচালনার মাধ্যমে আমাদের সাথে যৌথভাবে কাজ করার সুযোগ।">Collaborate with us on technology, capital, and operations through a PPP model.</p>
+                    </div>
+                    <div class="card">
+                        <div class="icon">📢</div>
+                        <h3 data-lang-en="Co-branding" data-lang-bn="কো-ব্র্যান্ডিং">Co-branding</h3>
+                        <p data-lang-en="Promote your brand through 'Powered by' placements and in-app banners." data-lang-bn="আমাদের প্ল্যাটফর্মে 'Powered by' বা ইন-অ্যাপ ব্যানার ব্যবহার করে আপনার ব্র্যান্ডের প্রচারণা চালান।">Promote your brand through 'Powered by' placements and in-app banners.</p>
+                    </div>
+                    <div class="card">
+                        <div class="icon">💰</div>
+                        <h3 data-lang-en="Revenue Sharing" data-lang-bn="রাজস্ব ভাগাভাগি">Revenue Sharing</h3>
+                        <p data-lang-en="Build a sustainable and profitable relationship with a transparent revenue-sharing model." data-lang-bn="একটি স্বচ্ছ রাজস্ব-ভাগাভাগি মডেলের মাধ্যমে একটি টেকসই এবং লাভজনক সম্পর্ক গড়ে তুলুন।">Build a sustainable and profitable relationship with a transparent revenue-sharing model.</p>
                     </div>
                 </div>
             </div>
